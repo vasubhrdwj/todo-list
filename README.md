@@ -1,3 +1,11 @@
+Current Goal :
+Add a default tab in projects sidebar,(Not Started)
+Have one component to create and return a task object(Ongoing)
+Have one component to display the list(Not started)
+Taking input should be improved a lot,
+A default List should be a list of task objects(Note)
+
+
 Steps: 
 2 - rest things will be added using modules    
 3 - make sure to keep dry principle    

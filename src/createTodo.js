@@ -5,5 +5,7 @@ export default function createTodo() {
   const priority = prompt("Enter priority: ");
   const isComplete = false;
 
+
+    // Creates and object
   return { title, dueDate, priority , isComplete};
 }
