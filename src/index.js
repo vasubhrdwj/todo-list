@@ -1,3 +1,9 @@
+import createTodo from "./createTodo";
 import "./style.css";
 
-console.log("Javascript test \u2705");
+window.defaultList = [];
+
+window.createTask = () => {
+  const obj = createTodo();
+  defaultList.push(obj);
+};

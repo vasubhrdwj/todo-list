@@ -1,5 +1,4 @@
 Steps: 
-1 - Have a basic design for what what will fixed on the website    
 2 - rest things will be added using modules    
 3 - make sure to keep dry principle    
 4 - Will have following sections    
