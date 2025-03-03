@@ -1,13 +1,16 @@
+import addProject from "./addProject";
 import createTodo from "./createTodo";
 import displayTasks from "./displayTasks";
 import "./style.css";
 
-window.defaultList = [];
-window.display = () => {
-  displayTasks(defaultList);
-};
+let defaultList = [];
 
+// Add a default project ( Name : Main)
+addProject("Main");
 
+// display = () => {
+//   displayTasks(defaultList);
+// };
 
 window.createTask = () => {
   const obj = createTodo();

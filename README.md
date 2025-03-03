@@ -4,6 +4,7 @@ Have one component to create and return a task object(Ongoing)
 Have one component to display the list(Not started)
 Taking input should be improved a lot,
 A default List should be a list of task objects(Note)
+Ques- Have a list of lists containing objects(individual list for each project)? Seems Viable >_<
 
 
 Steps: 
