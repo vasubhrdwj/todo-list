@@ -1,3 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  background-color: beige;
+  background-color: #28282b;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+
+  width: 90%;
+  min-height: 95vh;
+
+  background-color: white;
+  border-radius: 15px;
+
+  margin: auto;
+  align-items: stretch;
+}
+
+.sidebar {
+  background-color: gainsboro;
+  border-radius: inherit;
+  border-radius: 15px 0 0 15px;
+  width: 100%;
+  padding: 10%;
+
+  display: grid;
+  grid-template-rows: 1fr 3fr 4fr;
+  gap: 5%;
+}
+
+.user-display {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10%;
+  align-items: center;
+}
+
+.main-display {
+  padding: 10%;
+}
+
+.default-text {
+  font-size: 40px;
 }
