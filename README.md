@@ -1,10 +1,13 @@
 Current Goal :
-Add a default tab in projects sidebar,(Not Started)
-Have one component to create and return a task object(Ongoing)
-Have one component to display the list(Not started)
-Taking input should be improved a lot,
-A default List should be a list of task objects(Note)
-Ques- Have a list of lists containing objects(individual list for each project)? Seems Viable >_<
+Add a default tab in projects sidebar,(Done)    
+Have one component to create and return a task object(Ongoing)  
+Have one component to display the list(Not started) 
+Taking input should be improved a lot,  
+A default List should be a list of task objects(Note)   
+Ques- Have a list of lists containing objects(individual list for each project)? Seems Viable >_<   
+
+task Manger -   
+Whenever adding a task, checks for which project currently on (If not clear, then adds it to the default tab)
 
 
 Steps: 
