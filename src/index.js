@@ -1,13 +1,11 @@
-import addProject from "./addProject";
-import createTodo from "./createTodo";
 import "./style.css";
+import TaskManager from "./TaskManager";
 
-let defaultList = [];
+const defaultList = [];
 
-addProject("Main");
+const taskManager = new TaskManager();
 
+taskManager.addTask("Study", "12/03/2025", "high");
+taskManager.addTask("Work", "04/03/2025", "low");
 
-window.createTask = () => {
-  const obj = createTodo();
-  defaultList.push(obj);
-};
+console.log(taskManager.projects["default"]);
