@@ -8,19 +8,24 @@ export default class TaskManager {
 
   addTask(title, dueDate, priority, projectName = "default") {
     let isComplete = false;
-    const projectList = this.projectManager.getProject(projectName);
+    const projectList = this.Project(projectName);
     const id = projectList.length;
     projectList.push({ id, title, dueDate, priority, isComplete });
   }
 
   getTask(projectName = "default") {
-    for (const todos of this.projectManager.getProject(projectName))
-      console.log(todos);
+    for (const todos of this.Project(projectName)) console.log(todos);
   }
 
   changePriority(projectName, id, priority) {
-    const currProject = this.projectManager.getProject(projectName);
-    currProject[id].priority = priority;
+    const curr = this.Project(projectName);
+    curr[id].priority = priority;
+  }
+
+  // markComplete()
+
+  Project(projectName) {
+    return this.projectManager.getProject(projectName);
   }
 
   test() {
