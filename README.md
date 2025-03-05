@@ -1,7 +1,7 @@
 Today Goals :   
 ~a - create a function to change priority~  
 ~b - mark complete function  ~  
-c - Start a ui change for the projects u are in 
+~c - Start a ui change for the projects u are in ~
 
 You should separate your application logic (i.e. creating new todos, setting todos as complete, changing todo priority etc.) from the DOM-related stuff, so keep all of those things in separate modules.
 The look of the User Interface is up to you, but it should be able to do the following:

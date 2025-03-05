@@ -48,10 +48,21 @@ body {
   align-items: center;
 }
 
-.project-display{
+.project-display > h3 {
   text-align: center;
 }
 
 .main-display {
   padding: 10%;
+}
+
+.project-items {
+  padding: 2%;
+  margin: 2%;
+  list-style-type: none;
+}
+
+.project-btn {
+  padding: 5px;
+  background-color: gainsboro;
 }
