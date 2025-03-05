@@ -1,6 +1,6 @@
 import "./style.css";
 import TaskManager from "./TaskManager";
-import ProjectManager from "./ProjectManager";
+import ui from "./Ui";
 
 const taskManager = new TaskManager();
 
@@ -13,3 +13,7 @@ taskManager.toggleComplete("default", 1);
 taskManager.getTask();
 taskManager.toggleComplete("default", 1);
 taskManager.getTask();
+
+const u = new ui();
+
+u.test();
