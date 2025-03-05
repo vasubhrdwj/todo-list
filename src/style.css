@@ -48,8 +48,14 @@ body {
   align-items: center;
 }
 
+.project-display {
+  width: inherit;
+}
+
 .project-display > h3 {
   text-align: center;
+  padding: 5%;
+  margin-bottom: 5%;
 }
 
 .main-display {
@@ -57,12 +63,22 @@ body {
 }
 
 .project-items {
-  padding: 2%;
-  margin: 2%;
   list-style-type: none;
+}
+.project-list {
+  width: 100%;
 }
 
 .project-btn {
-  padding: 5px;
-  background-color: gainsboro;
+  padding: 10%;
+  background-color: white;
+  width: 100%;
+  border-bottom: 2px solid darkgray;
+}
+
+.project-btn:hover {
+  background-color: beige;
+}
+.project-btn:focus {
+  background-color: grey;
 }

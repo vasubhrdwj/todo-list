@@ -13,10 +13,6 @@ export default class TaskManager {
     projectList.push({ id, title, dueDate, priority, isComplete });
   }
 
-  displayTasks(projectName = "Default") {
-    for (const todos of this.Project(projectName)) console.log(todos);
-  }
-
   getTask(projectName, id) {
     return this.Project(projectName)[id];
   }
