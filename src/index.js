@@ -16,3 +16,5 @@ taskManager.toggleComplete("Default", 1);
 ui.updateProjectsDisplay();
 
 ui.showTasks("Default");
+
+

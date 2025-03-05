@@ -5,6 +5,7 @@ const ui = (tm) =>
 
     const updateProjectsDisplay = () => {
       projectList.innerHTML = "";
+
       const projects = tm.getAllProjects();
       for (const project in projects) {
         const li = document.createElement("li");
@@ -17,6 +18,18 @@ const ui = (tm) =>
 
         li.appendChild(btn);
         projectList.appendChild(li);
+      }
+    };
+
+    const showTasks = (projectName) => {
+      mainDisplay.innerHTML = "";
+      addTaskBtn(projectName);
+
+      const project = tm.Project(projectName);
+
+      for (let tasks of project) {
+        const div = createTaskTab(tasks);
+        mainDisplay.appendChild(div);
       }
     };
 
@@ -38,20 +51,26 @@ const ui = (tm) =>
       return div;
     };
 
-    const showTasks = (projectName) => {
-      mainDisplay.innerHTML = "";
-      const project = tm.Project(projectName);
-      for (let tasks of project) {
-        const div = createTaskTab(tasks);
-        mainDisplay.appendChild(div);
-      }
+    const addTaskBtn = (projectName) => {
+      const btn = document.createElement("btn");
+      btn.textContent = "+ Add Task";
+      btn.classList.add("addTask-btn");
+      btn.setAttribute("projectName", projectName);
+
+      mainDisplay.appendChild(btn);
     };
 
-    projectList.addEventListener("click", (event) => {
-      if (event.target.className !== "project-btn") return;
-
-      const projectName = event.target.name;
-      showTasks(projectName);
+    document.addEventListener("click", (event) => {
+      if (event.target.className === "project-btn") {
+        console.log(event.target.name);
+        const projectName = event.target.name;
+        showTasks(projectName);
+      }
+      if (event.target.className === "addTask-btn") {
+        const projectName = event.target.getAttribute("projectname");
+        tm.addTask("test", "-", "low", projectName);
+        showTasks(projectName);
+      }
     });
 
     return { updateProjectsDisplay, showTasks };
