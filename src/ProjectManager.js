@@ -1,7 +1,7 @@
 export default class ProjectManager {
   constructor() {
     this.projects = {
-      default: [],
+      Default: [],
     };
   }
 
@@ -11,14 +11,14 @@ export default class ProjectManager {
     }
   }
 
-  getProject(projectName = "default") {
+  getProject(projectName) {
     if (!this.projects[projectName]) {
       this.addProject(projectName);
     }
     return this.projects[projectName];
   }
 
-  display() {
-    console.log(this.projects);
+  getAllProjects() {
+    return this.projects;
   }
 }

@@ -3,18 +3,22 @@ import ProjectManager from "./ProjectManager";
 
 export default class TaskManager {
   constructor() {
-    this.projectManager = new ProjectManager();
+    this.pm = new ProjectManager();
   }
 
-  addTask(title, dueDate, priority, projectName = "default") {
+  addTask(title, dueDate, priority, projectName = "Default") {
     let isComplete = false;
     const projectList = this.Project(projectName);
     const id = projectList.length;
     projectList.push({ id, title, dueDate, priority, isComplete });
   }
 
-  getTask(projectName = "default") {
+  displayTasks(projectName = "Default") {
     for (const todos of this.Project(projectName)) console.log(todos);
+  }
+
+  getTask(projectName, id) {
+    return this.Project(projectName)[id];
   }
 
   changePriority(projectName, id, priority) {
@@ -28,10 +32,10 @@ export default class TaskManager {
   }
 
   Project(projectName) {
-    return this.projectManager.getProject(projectName);
+    return this.pm.getProject(projectName);
   }
 
-  test() {
-    this.projectManager.display();
+  getAllProjects() {
+    return this.pm.getAllProjects();
   }
 }
