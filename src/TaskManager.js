@@ -18,9 +18,10 @@ export default class TaskManager {
       console.log(todos);
   }
 
-  // changePriority(priority){
-
-  // }
+  changePriority(projectName, id, priority) {
+    const currProject = this.projectManager.getProject(projectName);
+    currProject[id].priority = priority;
+  }
 
   test() {
     this.projectManager.display();
