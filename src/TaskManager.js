@@ -4,17 +4,25 @@ import ProjectManager from "./ProjectManager";
 export default class TaskManager {
   constructor() {
     this.pm = new ProjectManager();
+    this.taskId = 0;
   }
 
   addTask(title, dueDate, priority, projectName = "Default") {
     let isComplete = false;
     const projectList = this.Project(projectName);
-    const id = projectList.length;
+    const id = this.taskId++;
     projectList.push({ id, title, dueDate, priority, isComplete });
   }
 
   getTask(projectName, id) {
     return this.Project(projectName)[id];
+  }
+
+  deleteTask(projectName, id) {
+    const projectList = this.Project(projectName);
+    this.pm.projects[projectName] = projectList.filter(
+      (task) => task.id !== id
+    );
   }
 
   changePriority(projectName, id, priority) {

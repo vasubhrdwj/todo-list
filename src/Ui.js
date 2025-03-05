@@ -34,19 +34,22 @@ const ui = (tm) =>
     };
 
     const createTaskTab = (task) => {
-      let title = task.title;
-      let dueDate = task.dueDate;
-
       const h4 = document.createElement("h4");
-      h4.textContent = title;
+      h4.textContent = task.title;
 
       const p = document.createElement("p");
-      p.textContent = dueDate;
+      p.textContent = task.dueDate;
 
       const div = document.createElement("div");
+      div.classList.add("todo");
+
+      // const delBtn = document.createElement("del");
+      const id = document.createElement("p");
+      id.textContent = task.id;
 
       div.appendChild(h4);
       div.appendChild(p);
+      div.appendChild(id);
 
       return div;
     };
@@ -62,7 +65,6 @@ const ui = (tm) =>
 
     document.addEventListener("click", (event) => {
       if (event.target.className === "project-btn") {
-        console.log(event.target.name);
         const projectName = event.target.name;
         showTasks(projectName);
       }
