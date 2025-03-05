@@ -1,8 +1,10 @@
 const ui = (tm) =>
   (() => {
+    const mainDisplay = document.querySelector(".main-display");
+    const projectList = document.querySelector(".project-list");
+
     const updateProjectsDisplay = () => {
       const projects = tm.getAllProjects();
-      const projectList = document.querySelector(".project-list");
       for (const project in projects) {
         const li = document.createElement("li");
         li.classList.add("project-items");
@@ -15,7 +17,32 @@ const ui = (tm) =>
         projectList.appendChild(li);
       }
     };
-    return { updateProjectsDisplay };
+
+    const createTaskTab = (task) => {
+      let title = task.title;
+      let dueDate = task.dueDate;
+
+      const h4 = document.createElement("h4");
+      h4.textContent = title;
+
+      const p = document.createElement("p");
+      p.textContent = dueDate;
+
+      const div = document.createElement("div");
+
+      div.appendChild(h4);
+      div.appendChild(p);
+
+      mainDisplay.appendChild(div);
+    };
+
+    const showTasks = (projectName) => {
+      const project = tm.Project(projectName);
+      for (let tasks of project) {
+        createTaskTab(tasks);
+      }
+    };
+    return { updateProjectsDisplay, showTasks };
   })();
 
 export default ui;
