@@ -14,6 +14,4 @@ taskManager.getTask();
 taskManager.toggleComplete("default", 1);
 taskManager.getTask();
 
-const u = new ui();
-
-u.test();
+ui.test();

@@ -1,8 +1,10 @@
-export default class ui {
-  test() {
-    const projectList = document.querySelector(".project-list");
-    const li = document.createElement("li");
-    li.textContent = "A test really";
-    projectList.appendChild(li);
-  }
-}
+const ui = (() => {
+  const test = () => {
+    const mainDisplay = document.querySelector(".main-display");
+    mainDisplay.textContent = `Wohoooo, Linked!`;
+  };
+
+  return { test };
+})();
+
+export default ui;
