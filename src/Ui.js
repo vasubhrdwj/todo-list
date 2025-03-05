@@ -43,13 +43,15 @@ const ui = (tm) =>
       const div = document.createElement("div");
       div.classList.add("todo");
 
-      // const delBtn = document.createElement("del");
-      const id = document.createElement("p");
-      id.textContent = task.id;
+      const delBtn = document.createElement("btn");
+      delBtn.textContent = "DEL";
+      delBtn.classList.add("del-btn");
+      delBtn.setAttribute("projectname", task.projectName);
+      delBtn.setAttribute("tid", task.id);
 
       div.appendChild(h4);
       div.appendChild(p);
-      div.appendChild(id);
+      div.appendChild(delBtn);
 
       return div;
     };
@@ -64,14 +66,27 @@ const ui = (tm) =>
     };
 
     document.addEventListener("click", (event) => {
-      if (event.target.className === "project-btn") {
-        const projectName = event.target.name;
-        showTasks(projectName);
-      }
-      if (event.target.className === "addTask-btn") {
-        const projectName = event.target.getAttribute("projectname");
-        tm.addTask("test", "-", "low", projectName);
-        showTasks(projectName);
+      switch (event.target.className) {
+        case "project-btn":
+          showTasks(event.target.name);
+          break;
+
+        case "addTask-btn":
+          const projectName = event.target.getAttribute("projectname");
+          tm.addTask("test", "-", "low", projectName);
+          showTasks(projectName);
+          break;
+
+        case "del-btn":
+          const pName = event.target.getAttribute("projectname");
+          const tid = Number(event.target.getAttribute("tid"));
+          tm.deleteTask(pName, tid);
+          showTasks(pName);
+          break;
+
+        default:
+          // Optional: Handle cases where className doesn't match
+          console.warn("Unhandled button click:", event.target.className);
       }
     });
 

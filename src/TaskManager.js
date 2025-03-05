@@ -11,7 +11,7 @@ export default class TaskManager {
     let isComplete = false;
     const projectList = this.Project(projectName);
     const id = this.taskId++;
-    projectList.push({ id, title, dueDate, priority, isComplete });
+    projectList.push({ id, title, dueDate, priority, isComplete, projectName });
   }
 
   getTask(projectName, id) {
