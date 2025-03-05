@@ -22,7 +22,10 @@ export default class TaskManager {
     curr[id].priority = priority;
   }
 
-  // markComplete()
+  toggleComplete(projectName, id) {
+    const curr = this.Project(projectName);
+    curr[id].isComplete = !curr[id].isComplete;
+  }
 
   Project(projectName) {
     return this.projectManager.getProject(projectName);
