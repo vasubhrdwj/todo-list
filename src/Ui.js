@@ -3,7 +3,6 @@ const ui = (tm) =>
     const mainDisplay = document.querySelector(".main-display");
     const projectList = document.querySelector(".project-list");
     const dialog = document.querySelector("dialog");
-    const closeBtn = document.querySelector(".close-btn");
 
     const updateProjectsDisplay = () => {
       projectList.innerHTML = "";

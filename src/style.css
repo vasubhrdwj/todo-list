@@ -142,7 +142,8 @@ input {
 }
 
 .close-btn,
-label {
+label,
+.submit-btn {
   display: block;
   margin-top: 5%;
 }
