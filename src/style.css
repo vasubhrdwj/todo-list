@@ -132,10 +132,17 @@ body {
 }
 
 .modal {
-  top: 50%;
-  left: 50%;
+  margin: auto;
+  text-align: center;
+  padding: 5%;
 }
 
-.close-btn {
+input {
+  border: 1px solid #28282b;
+}
+
+.close-btn,
+label {
   display: block;
+  margin-top: 5%;
 }

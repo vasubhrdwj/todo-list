@@ -2,6 +2,8 @@ const ui = (tm) =>
   (() => {
     const mainDisplay = document.querySelector(".main-display");
     const projectList = document.querySelector(".project-list");
+    const dialog = document.querySelector("dialog");
+    const closeBtn = document.querySelector(".close-btn");
 
     const updateProjectsDisplay = () => {
       projectList.innerHTML = "";
@@ -73,7 +75,8 @@ const ui = (tm) =>
 
         case "addTask-btn":
           const projectName = event.target.getAttribute("projectname");
-          tm.addTask("test", "-", "low", projectName);
+          // tm.addTask("test", "-", "low", projectName);
+          dialog.showModal();
           showTasks(projectName);
           break;
 
@@ -84,21 +87,13 @@ const ui = (tm) =>
           showTasks(pName);
           break;
 
+        case "close-btn":
+          dialog.close();
+          break;
+
         default:
-          // Optional: Handle cases where className doesn't match
           console.warn("Unhandled button click:", event.target.className);
       }
-    });
-
-    const showBtn = document.querySelector(".show-btn");
-    const modal = document.querySelector(".modal");
-    const closeBtn = document.querySelector(".close-btn");
-    showBtn.addEventListener("click", () => {
-      modal.showModal();
-    });
-
-    closeBtn.addEventListener("click", () => {
-      modal.close();
     });
 
     return { updateProjectsDisplay, showTasks };
