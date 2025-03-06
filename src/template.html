@@ -19,19 +19,20 @@
     </div>
 
     <dialog class="modal">
-      <button class="close-btn">Close</button>
-      <label for="title">Title : </label>
-      <input type="text" name="title" id="title" />
-      <label for="dueDate">Date : </label>
-      <input type="date" id="dueDate" name="dueDate" />
-      <label for="priority">Priority : </label>
-      <select name="priority" id="priority">
-        <option value="high">High</option>
-        <option value="medium" selected>Medium</option>
-        <option value="low">Low</option>
-      </select>
-
-      <button type="submit" class="submit-btn">Submit</button>
+      <form id="task-form" method="dialog">
+        <button class="close-btn">Close</button>
+        <label for="title" aria-required>Title : </label>
+        <input type="text" name="title" id="title" required />
+        <label for="dueDate">Date : </label>
+        <input type="date" id="dueDate" name="dueDate" />
+        <label for="priority">Priority : </label>
+        <select name="priority" id="priority">
+          <option value="high">High</option>
+          <option value="medium" selected>Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
     </dialog>
 
     <div class="main-display"></div>

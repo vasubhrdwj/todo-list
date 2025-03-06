@@ -3,6 +3,7 @@ const ui = (tm) =>
     const mainDisplay = document.querySelector(".main-display");
     const projectList = document.querySelector(".project-list");
     const dialog = document.querySelector("dialog");
+    const taskForm = document.getElementById("task-form");
 
     const updateProjectsDisplay = () => {
       projectList.innerHTML = "";
@@ -66,6 +67,23 @@ const ui = (tm) =>
       mainDisplay.appendChild(btn);
     };
 
+    const addNewTask = (projectName) => {
+      const titleInput = document.getElementById("title");
+      const dueDate = document.getElementById("dueDate").value;
+      const priority = document.getElementById("priority").value;
+
+      if (titleInput.value.trim() === "") {
+        alert("Title cannot be empty!");
+        titleInput.focus();
+        return;
+      }
+      tm.addTask(titleInput.value, dueDate, priority, projectName);
+      showTasks(projectName);
+
+      taskForm.reset();
+      dialog.close();
+    };
+
     document.addEventListener("click", (event) => {
       switch (event.target.className) {
         case "project-btn":
@@ -74,9 +92,8 @@ const ui = (tm) =>
 
         case "addTask-btn":
           const projectName = event.target.getAttribute("projectname");
-          // tm.addTask("test", "-", "low", projectName);
+          dialog.setAttribute("projectname", projectName);
           dialog.showModal();
-          showTasks(projectName);
           break;
 
         case "del-btn":
@@ -87,11 +104,22 @@ const ui = (tm) =>
           break;
 
         case "close-btn":
+          event.preventDefault();
+          
+          taskForm.reset();
           dialog.close();
           break;
 
+        case "submit-btn":
+          event.preventDefault();
+
+          const dialogProject = dialog.getAttribute("projectname");
+          addNewTask(dialogProject);
+
+          break;
+
         default:
-          console.warn("Unhandled button click:", event.target.className);
+          console.info("Unhandled button click:", event.target.className);
       }
     });
 
