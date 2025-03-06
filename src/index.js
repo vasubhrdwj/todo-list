@@ -14,4 +14,4 @@ taskManager.changePriority("Default", 0, "medium");
 taskManager.toggleComplete("Default", 1);
 ui.updateProjectsDisplay();
 
-ui.showTasks("Default");
+// ui.showTasks("Default");
