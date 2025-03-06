@@ -84,6 +84,7 @@ const ui = (tm) =>
       dialog.close();
     };
 
+    // Handles the btns
     document.addEventListener("click", (event) => {
       switch (event.target.className) {
         case "project-btn":

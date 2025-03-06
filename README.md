@@ -1,12 +1,9 @@
 Current Tasks
+1 - Way to edit the displayed todos
+2 - color Each todo based on priority
+3 - add a marker for complete or not
 
 
-
-
-
-
-
-You should separate your application logic (i.e. creating new todos, setting todos as complete, changing todo priority etc.) from the DOM-related stuff, so keep all of those things in separate modules.   
 The look of the User Interface is up to you, but it should be able to do the following:
 View all projects.  
 View all todos in each project (probably just the title and duedate… perhaps changing color for different priorities).  
