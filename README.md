@@ -1,5 +1,5 @@
 Current Tasks
-1 - Way to edit the displayed todos
+1 - Way to edit the displayed todos --- 
 2 - color Each todo based on priority
 3 - add a marker for complete or not
 
