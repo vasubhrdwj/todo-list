@@ -4,10 +4,16 @@ const ui = (tm) =>
     const projectList = document.querySelector(".project-list");
     const dialog = document.querySelector("dialog");
     const taskForm = document.getElementById("task-form");
+    const titleInput = document.getElementById("title");
+    const dueDateInput = document.getElementById("dueDate");
+    const priorityInput = document.getElementById("priority");
+    const submitBtn = document.querySelector(".submit-btn");
+
+    let editTaskId = null;
+    let editProjectName = null;
 
     const updateProjectsDisplay = () => {
       projectList.innerHTML = "";
-
       const projects = tm.getAllProjects();
       for (const project in projects) {
         const li = document.createElement("li");
@@ -28,9 +34,8 @@ const ui = (tm) =>
       addTaskBtn(projectName);
 
       const project = tm.Project(projectName);
-
-      for (let tasks of project) {
-        const div = createTaskTab(tasks);
+      for (let task of project) {
+        const div = createTaskTab(task);
         mainDisplay.appendChild(div);
       }
     };
@@ -44,8 +49,10 @@ const ui = (tm) =>
 
       const div = document.createElement("div");
       div.classList.add("todo");
+      div.setAttribute("tid", task.id);
+      div.setAttribute("pName", task.projectName);
 
-      const delBtn = document.createElement("btn");
+      const delBtn = document.createElement("button");
       delBtn.textContent = "DEL";
       delBtn.classList.add("del-btn");
       delBtn.setAttribute("projectname", task.projectName);
@@ -59,68 +66,100 @@ const ui = (tm) =>
     };
 
     const addTaskBtn = (projectName) => {
-      const btn = document.createElement("btn");
+      const btn = document.createElement("button");
       btn.textContent = "+ Add Task";
       btn.classList.add("addTask-btn");
       btn.setAttribute("projectName", projectName);
-
       mainDisplay.appendChild(btn);
     };
 
-    const addNewTask = (projectName) => {
-      const titleInput = document.getElementById("title");
-      const dueDate = document.getElementById("dueDate").value;
-      const priority = document.getElementById("priority").value;
+    const openDialog = (mode, projectName, task = null) => {
+      dialog.setAttribute("data-mode", mode);
+      dialog.setAttribute("projectname", projectName);
+      editTaskId = task ? task.id : null;
+      editProjectName = projectName;
 
-      if (titleInput.value.trim() === "") {
+      if (mode === "edit" && task) {
+        titleInput.value = task.title;
+        dueDateInput.value = task.dueDate;
+        priorityInput.value = task.priority;
+      } else {
+        taskForm.reset();
+      }
+      dialog.showModal();
+    };
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const mode = dialog.getAttribute("data-mode");
+      const projectName = dialog.getAttribute("projectname");
+      const title = titleInput.value.trim();
+      const dueDate = dueDateInput.value;
+      const priority = priorityInput.value;
+
+      if (!title) {
         alert("Title cannot be empty!");
         titleInput.focus();
         return;
       }
-      tm.addTask(titleInput.value, dueDate, priority, projectName);
-      showTasks(projectName);
 
+      if (mode === "edit" && editTaskId !== null) {
+        tm.updateTask(editProjectName, editTaskId, {
+          title,
+          dueDate,
+          priority,
+        });
+      } else {
+        tm.addTask(title, dueDate, priority, projectName);
+      }
+
+      showTasks(projectName);
       taskForm.reset();
       dialog.close();
     };
 
-    // Handles the btns
     document.addEventListener("click", (event) => {
-      switch (event.target.className) {
-        case "project-btn":
+      const clickedTodo = event.target.closest(".todo");
+
+      switch (true) {
+        case event.target.classList.contains("project-btn"):
           showTasks(event.target.name);
           break;
 
-        case "addTask-btn":
-          const projectName = event.target.getAttribute("projectname");
-          dialog.setAttribute("projectname", projectName);
-          dialog.showModal();
+        case event.target.classList.contains("addTask-btn"):
+          openDialog("add", event.target.getAttribute("projectname"));
           break;
 
-        case "del-btn":
+        case event.target.classList.contains("del-btn"):
           const pName = event.target.getAttribute("projectname");
           const tid = Number(event.target.getAttribute("tid"));
+
+          editTaskId = null;
+          editProjectName = null;
+
           tm.deleteTask(pName, tid);
+
           showTasks(pName);
           break;
 
-        case "close-btn":
+        case event.target.classList.contains("close-btn"):
           event.preventDefault();
-          
           taskForm.reset();
           dialog.close();
           break;
 
-        case "submit-btn":
-          event.preventDefault();
-
-          const dialogProject = dialog.getAttribute("projectname");
-          addNewTask(dialogProject);
-
+        case event.target.classList.contains("submit-btn"):
+          handleSubmit(event);
           break;
 
-        default:
-          console.info("Unhandled button click:", event.target.className);
+        case !!clickedTodo:
+          const taskId = Number(clickedTodo.getAttribute("tid"));
+          const project = clickedTodo.getAttribute("pName");
+
+          const task = tm.getTask(project, taskId);
+          console.log(task);
+          openDialog("edit", project, task);
+          break;
       }
     });
 

@@ -105,6 +105,10 @@ body {
   border-bottom: 1px solid #28282b;
 }
 
+.todo:hover {
+  background-color: gainsboro;
+}
+
 .todo:first-of-type {
   border-top: 2px solid #28282b;
 }

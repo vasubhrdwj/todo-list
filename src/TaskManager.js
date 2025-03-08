@@ -15,7 +15,13 @@ export default class TaskManager {
   }
 
   getTask(projectName, id) {
-    return this.Project(projectName)[id];
+    return this.Project(projectName).find((task) => task.id === id);
+  }
+
+  updateTask(projectName, id, { title, dueDate, priority }) {
+    this.Project(projectName)[id].title = title;
+    this.Project(projectName)[id].dueDate = dueDate;
+    this.Project(projectName)[id].priority = priority;
   }
 
   deleteTask(projectName, id) {
