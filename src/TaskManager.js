@@ -19,9 +19,10 @@ export default class TaskManager {
   }
 
   updateTask(projectName, id, { title, dueDate, priority }) {
-    this.Project(projectName)[id].title = title;
-    this.Project(projectName)[id].dueDate = dueDate;
-    this.Project(projectName)[id].priority = priority;
+    const task = this.Project(projectName).find((task) => task.id === id);
+    task.title = title;
+    task.dueDate = dueDate;
+    task.priority = priority;
   }
 
   deleteTask(projectName, id) {

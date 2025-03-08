@@ -9,6 +9,7 @@ const ui = (tm) =>
     const priorityInput = document.getElementById("priority");
     const submitBtn = document.querySelector(".submit-btn");
 
+
     let editTaskId = null;
     let editProjectName = null;
 
@@ -43,6 +44,8 @@ const ui = (tm) =>
     const createTaskTab = (task) => {
       const h4 = document.createElement("h4");
       h4.textContent = task.title;
+
+      // const checkBox = createCheckBox();
 
       const p = document.createElement("p");
       p.textContent = task.dueDate;
@@ -162,6 +165,11 @@ const ui = (tm) =>
           break;
       }
     });
+
+    // const checkBox = () => {
+    //   const c18 = document.createElement("div");
+    //   const round = document.createElement("div");
+    // }
 
     return { updateProjectsDisplay, showTasks };
   })();
