@@ -12,6 +12,7 @@ taskManager.addTask("Workout", "2025-02-01", "high", "Fitness");
 
 // taskManager.changePriority("Default", 0, "medium");
 // taskManager.toggleComplete("Default", 1);
+
 ui.updateProjectsDisplay();
 
 ui.showTasks("Default");

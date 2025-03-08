@@ -9,7 +9,6 @@ const ui = (tm) =>
     const priorityInput = document.getElementById("priority");
     const submitBtn = document.querySelector(".submit-btn");
 
-
     let editTaskId = null;
     let editProjectName = null;
 
@@ -45,7 +44,7 @@ const ui = (tm) =>
       const h4 = document.createElement("h4");
       h4.textContent = task.title;
 
-      // const checkBox = createCheckBox();
+      const checkBox = createCheckBox();
 
       const p = document.createElement("p");
       p.textContent = task.dueDate;
@@ -61,6 +60,7 @@ const ui = (tm) =>
       delBtn.setAttribute("projectname", task.projectName);
       delBtn.setAttribute("tid", task.id);
 
+      div.appendChild(checkBox);
       div.appendChild(h4);
       div.appendChild(p);
       div.appendChild(delBtn);
@@ -123,6 +123,8 @@ const ui = (tm) =>
 
     document.addEventListener("click", (event) => {
       const clickedTodo = event.target.closest(".todo");
+      const checkboxWrapper = event.target.closest(".checkbox-wrapper-26");
+      const isCheckbox = event.target.matches('input[type="checkbox"]');
 
       switch (true) {
         case event.target.classList.contains("project-btn"):
@@ -155,7 +157,12 @@ const ui = (tm) =>
           handleSubmit(event);
           break;
 
-        case !!clickedTodo:
+        case !!checkboxWrapper || isCheckbox:
+          console.log("Checkbox clicked! Handle it here.");
+          tm.toggleComplete("Default", 0);
+          break;
+
+        case !!clickedTodo && !checkboxWrapper:
           const taskId = Number(clickedTodo.getAttribute("tid"));
           const project = clickedTodo.getAttribute("pName");
 
@@ -166,10 +173,24 @@ const ui = (tm) =>
       }
     });
 
-    // const checkBox = () => {
-    //   const c18 = document.createElement("div");
-    //   const round = document.createElement("div");
-    // }
+    const createCheckBox = () => {
+      const c26 = document.createElement("div");
+      const checkboxInput = document.createElement("input");
+      const checkboxLabel = document.createElement("label");
+      const tickMark = document.createElement("div");
+
+      c26.className = "checkbox-wrapper-26";
+      checkboxInput.type = "checkbox";
+      checkboxInput.id = "_checkbox-26";
+      tickMark.className = "tick_mark";
+      checkboxLabel.htmlFor = "_checkbox-26";
+
+      c26.appendChild(checkboxInput);
+      c26.appendChild(checkboxLabel);
+      checkboxLabel.appendChild(tickMark);
+
+      return c26;
+    };
 
     return { updateProjectsDisplay, showTasks };
   })();

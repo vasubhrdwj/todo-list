@@ -32,14 +32,8 @@ export default class TaskManager {
     );
   }
 
-  changePriority(projectName, id, priority) {
-    const curr = this.Project(projectName);
-    curr[id].priority = priority;
-  }
-
   toggleComplete(projectName, id) {
-    const curr = this.Project(projectName);
-    curr[id].isComplete = !curr[id].isComplete;
+    
   }
 
   Project(projectName) {
