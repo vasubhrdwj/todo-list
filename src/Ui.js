@@ -44,7 +44,8 @@ const ui = (tm) =>
       const h4 = document.createElement("h4");
       h4.textContent = task.title;
 
-      const checkBox = createCheckBox();
+      // Pass the task.id to create a unique checkbox for each task
+      const checkBox = createCheckBox(task.id);
 
       const p = document.createElement("p");
       p.textContent = task.dueDate;
@@ -124,7 +125,6 @@ const ui = (tm) =>
     document.addEventListener("click", (event) => {
       const clickedTodo = event.target.closest(".todo");
       const checkboxWrapper = event.target.closest(".checkbox-wrapper-26");
-      const isCheckbox = event.target.matches('input[type="checkbox"]');
 
       switch (true) {
         case event.target.classList.contains("project-btn"):
@@ -157,9 +157,16 @@ const ui = (tm) =>
           handleSubmit(event);
           break;
 
-        case !!checkboxWrapper || isCheckbox:
-          console.log("Checkbox clicked! Handle it here.");
-          tm.toggleComplete("Default", 0);
+        case event.target.matches(
+          ".checkbox-wrapper-26, input[type='checkbox']"
+        ):
+          event.stopPropagation();
+          const todoElement = event.target.closest(".todo");
+          if (todoElement) {
+            const taskId = Number(todoElement.getAttribute("tid"));
+            const projectName = todoElement.getAttribute("pName");
+            tm.toggleComplete(projectName, taskId);
+          }
           break;
 
         case !!clickedTodo && !checkboxWrapper:
@@ -168,12 +175,13 @@ const ui = (tm) =>
 
           const task = tm.getTask(project, taskId);
           console.log(task);
+
           openDialog("edit", project, task);
           break;
       }
     });
 
-    const createCheckBox = () => {
+    const createCheckBox = (taskId) => {
       const c26 = document.createElement("div");
       const checkboxInput = document.createElement("input");
       const checkboxLabel = document.createElement("label");
@@ -181,9 +189,10 @@ const ui = (tm) =>
 
       c26.className = "checkbox-wrapper-26";
       checkboxInput.type = "checkbox";
-      checkboxInput.id = "_checkbox-26";
+      // Use a unique ID for each checkbox based on taskId
+      checkboxInput.id = `checkbox-${taskId}`;
       tickMark.className = "tick_mark";
-      checkboxLabel.htmlFor = "_checkbox-26";
+      checkboxLabel.htmlFor = `checkbox-${taskId}`;
 
       c26.appendChild(checkboxInput);
       c26.appendChild(checkboxLabel);
