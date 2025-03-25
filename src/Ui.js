@@ -66,8 +66,8 @@ const ui = (tm) =>
       div.appendChild(checkBox);
       div1.appendChild(h4);
       div1.appendChild(p);
-      div1.appendChild(delBtn);
       div.append(div1);
+      div.appendChild(delBtn);
 
       return div;
     };

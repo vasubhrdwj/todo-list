@@ -1,18 +1,3 @@
-Current Tasks
-1 - Way to edit the displayed todos --- 
-2 - color Each todo based on priority
-3 - add a marker for complete or not
-
-
-The look of the User Interface is up to you, but it should be able to do the following:
-View all projects.  
-View all todos in each project (probably just the title and duedate… perhaps changing color for different priorities).  
-Expand a single todo to see/edit its details.
-Delete a todo.  
-For inspiration, check out the following great todo apps. (look at screenshots, watch their introduction videos etc.)   
-Todoist 
-Things  
-any.do  
 Since you are probably already using webpack, adding external libraries from npm is a cinch! You might want to consider using the following useful library in your code:
 date-fns gives you a bunch of handy functions for formatting and manipulating dates and times.  
 We haven’t learned any techniques for actually storing our data anywhere, so when the user refreshes the page, all of their todos will disappear! You should add some persistence to this todo app using the Web Storage API.   

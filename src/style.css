@@ -19,8 +19,8 @@ body {
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr;
 
-  width: 90%;
-  min-height: 95vh;
+  width: 80%;
+  min-height: 90vh;
 
   background-color: white;
   border-radius: 15px;
@@ -118,10 +118,12 @@ body {
 
 .del-btn {
   color: white;
-  padding: 10px;
+  padding: 6px;
   background-color: red;
   display: block;
   width: 10%;
+  border-radius: 5px;
+  margin-left: 60%;
 }
 
 ::backdrop {
@@ -158,8 +160,23 @@ label {
 }
 .todo {
   display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
+.div1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.div1 > h4 {
+  font-size: 20px;
+}
+
+.div1 > p {
+  font-size: 18px;
+}
 /* Checkbox wrapper */
 
 .checkbox-wrapper-26 * {
@@ -172,7 +189,7 @@ label {
 }
 
 .checkbox-wrapper-26 label {
-  --size: 50px;
+  --size: 40px;
   --shadow: calc(var(--size) * 0.07) calc(var(--size) * 0.1);
 
   position: relative;
