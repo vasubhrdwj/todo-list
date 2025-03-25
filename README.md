@@ -5,3 +5,8 @@ localStorage allows you to save data on the user’s computer. The downside here
 Make sure your app doesn’t crash if the data you may want to retrieve from localStorage isn’t there!    
 You can inspect data you saved in localStorage using DevTools! To do this, open the Application tab in DevTools and click on the Local Storage tab under Storage. Every time you add, update and delete data from localStorage in your app, those changes will be reflected in DevTools.    
 localStorage uses JSON to send and store data, and when you retrieve the data, it will also be in JSON format. Keep in mind you cannot store functions in JSON, so you’ll have to figure out how to add methods back to your object properties once you fetch them. Good luck!  
+
+
+Goals :
+Add project button
+change the design

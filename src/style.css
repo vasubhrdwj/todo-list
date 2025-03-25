@@ -92,6 +92,7 @@ body {
   background-color: blanchedalmond;
   color: red;
   display: block;
+  border-radius: 5px;
 }
 
 .todo > * {
