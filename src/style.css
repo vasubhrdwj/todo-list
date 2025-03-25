@@ -156,7 +156,9 @@ label {
   display: block;
   margin-top: 10%;
 }
-
+.todo {
+  display: flex;
+}
 
 /* Checkbox wrapper */
 
@@ -171,7 +173,7 @@ label {
 
 .checkbox-wrapper-26 label {
   --size: 50px;
-  --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+  --shadow: calc(var(--size) * 0.07) calc(var(--size) * 0.1);
 
   position: relative;
   display: block;
@@ -194,8 +196,8 @@ label {
   top: 50%;
   right: 0;
   left: 0;
-  width: calc(var(--size) * .7);
-  height: calc(var(--size) * .7);
+  width: calc(var(--size) * 0.7);
+  height: calc(var(--size) * 0.7);
   margin: 0 auto;
   background-color: #fff;
   transform: translateY(-50%);
@@ -205,8 +207,8 @@ label {
 }
 
 .checkbox-wrapper-26 label:hover:before {
-  width: calc(var(--size) * .55);
-  height: calc(var(--size) * .55);
+  width: calc(var(--size) * 0.55);
+  height: calc(var(--size) * 0.55);
   box-shadow: inset 0 var(--shadow) #ff9d96;
 }
 
@@ -218,11 +220,11 @@ label {
   position: absolute;
   top: -1px;
   right: 0;
-  left: calc(var(--size) * -.05);
-  width: calc(var(--size) * .6);
-  height: calc(var(--size) * .6);
+  left: calc(var(--size) * -0.05);
+  width: calc(var(--size) * 0.6);
+  height: calc(var(--size) * 0.6);
   margin: 0 auto;
-  margin-left: calc(var(--size) * .14);
+  margin-left: calc(var(--size) * 0.14);
   transform: rotateZ(-40deg);
 }
 
@@ -239,19 +241,19 @@ label {
 .checkbox-wrapper-26 .tick_mark:before {
   left: 0;
   bottom: 0;
-  width: calc(var(--size) * .1);
-  height: calc(var(--size) * .3);
+  width: calc(var(--size) * 0.1);
+  height: calc(var(--size) * 0.3);
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
-  transform: translateY(calc(var(--size) * -.68));
+  transform: translateY(calc(var(--size) * -0.68));
 }
 
 .checkbox-wrapper-26 .tick_mark:after {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: calc(var(--size) * .1);
+  height: calc(var(--size) * 0.1);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
-  transform: translateX(calc(var(--size) * .78));
+  transform: translateX(calc(var(--size) * 0.78));
 }
 
 .checkbox-wrapper-26 input[type="checkbox"]:checked + label {

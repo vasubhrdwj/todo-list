@@ -46,6 +46,8 @@ const ui = (tm) =>
 
       // Pass the task.id to create a unique checkbox for each task
       const checkBox = createCheckBox(task.id);
+      const div1 = document.createElement("div");
+      div1.classList.add("div1");
 
       const p = document.createElement("p");
       p.textContent = task.dueDate;
@@ -62,9 +64,10 @@ const ui = (tm) =>
       delBtn.setAttribute("tid", task.id);
 
       div.appendChild(checkBox);
-      div.appendChild(h4);
-      div.appendChild(p);
-      div.appendChild(delBtn);
+      div1.appendChild(h4);
+      div1.appendChild(p);
+      div1.appendChild(delBtn);
+      div.append(div1);
 
       return div;
     };
