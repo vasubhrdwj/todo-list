@@ -27,6 +27,12 @@ const ui = (tm) =>
         li.appendChild(btn);
         projectList.appendChild(li);
       }
+      const addProjectBtn = document.createElement("button");
+      addProjectBtn.textContent = "New Project";
+      addProjectBtn.classList.add("project-items");
+      addProjectBtn.classList.add("addProject-btn");
+
+      projectList.appendChild(addProjectBtn);
     };
 
     const showTasks = (projectName) => {
@@ -44,7 +50,6 @@ const ui = (tm) =>
       const h4 = document.createElement("h4");
       h4.textContent = task.title;
 
-      // Pass the task.id to create a unique checkbox for each task
       const checkBox = createCheckBox(task.id);
       const div1 = document.createElement("div");
       div1.classList.add("div1");
