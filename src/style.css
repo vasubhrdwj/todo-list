@@ -124,7 +124,7 @@ body {
   display: block;
   width: 10%;
   border-radius: 5px;
-  margin-left: 60%;
+  margin-left: max(60%, 10px);
 }
 
 ::backdrop {
@@ -177,6 +177,16 @@ label {
 
 .div1 > p {
   font-size: 18px;
+}
+
+.addProject-btn {
+  padding: 5%;
+  margin-top: 5%;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.addProject-btn:hover {
+  background-color: whitesmoke;
 }
 /* Checkbox wrapper */
 

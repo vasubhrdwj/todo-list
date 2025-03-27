@@ -165,6 +165,12 @@ const ui = (tm) =>
           handleSubmit(event);
           break;
 
+        case event.target.classList.contains("addProject-btn"):
+          let v = prompt("new project hueheuheuheuhue");
+          tm.addProject(v);
+          updateProjectsDisplay();
+          break;
+
         case event.target.matches(
           ".checkbox-wrapper-26, input[type='checkbox']"
         ):

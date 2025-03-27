@@ -18,6 +18,10 @@ export default class ProjectManager {
     return this.projects[projectName];
   }
 
+  delProject(projectName) {
+    delete this.projects[projectName];
+  }
+
   getAllProjects() {
     return this.projects;
   }

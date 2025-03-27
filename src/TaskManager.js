@@ -44,4 +44,12 @@ export default class TaskManager {
   getAllProjects() {
     return this.pm.getAllProjects();
   }
+
+  delProject(projectName) {
+    this.pm.delProject(projectName);
+  }
+
+  addProject(projectName) {
+    this.pm.addProject(projectName);
+  }
 }
