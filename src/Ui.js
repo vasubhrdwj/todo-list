@@ -133,8 +133,18 @@ const ui = (tm) =>
 
     const handleProjectSubmit = (event) => {
       event.preventDefault();
-      const projectName = document.getElementById("project-name");
-      
+      const projectNameInput = document.getElementById("project-name");
+      const projectName = projectNameInput.value.trim();
+      if (!projectName) {
+        alert("Project Name cannot be empty!");
+        projectNameInput.focus();
+        return;
+      }
+
+      tm.addProject(projectName);
+      updateProjectsDisplay();
+      projectForm.reset();
+      projectDialog.close();
     };
 
     document.addEventListener("click", (event) => {
