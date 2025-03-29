@@ -13,3 +13,4 @@ taskManager.addTask("Workout", "2025-02-01", "high", "Fitness");
 ui.updateProjectsDisplay();
 
 ui.showTasks("Default");
+ 

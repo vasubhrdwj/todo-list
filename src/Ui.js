@@ -3,11 +3,12 @@ const ui = (tm) =>
     const mainDisplay = document.querySelector(".main-display");
     const projectList = document.querySelector(".project-list");
     const dialog = document.querySelector("dialog");
+    const projectDialog = document.querySelector(".projectDialog");
     const taskForm = document.getElementById("task-form");
+    const projectForm = document.getElementById("project-form");
     const titleInput = document.getElementById("title");
     const dueDateInput = document.getElementById("dueDate");
     const priorityInput = document.getElementById("priority");
-    const submitBtn = document.querySelector(".submit-btn");
 
     let editTaskId = null;
     let editProjectName = null;
@@ -130,6 +131,12 @@ const ui = (tm) =>
       dialog.close();
     };
 
+    const handleProjectSubmit = (event) => {
+      event.preventDefault();
+      const projectName = document.getElementById("project-name");
+      
+    };
+
     document.addEventListener("click", (event) => {
       const clickedTodo = event.target.closest(".todo");
       const checkboxWrapper = event.target.closest(".checkbox-wrapper-26");
@@ -161,13 +168,24 @@ const ui = (tm) =>
           dialog.close();
           break;
 
+        case event.target.classList.contains("project-close-btn"):
+          event.preventDefault();
+          projectForm.reset();
+          projectDialog.close();
+          break;
+
         case event.target.classList.contains("submit-btn"):
           handleSubmit(event);
           break;
 
+        case event.target.classList.contains("project-submit-btn"):
+          handleProjectSubmit(event);
+
+          break;
+
         case event.target.classList.contains("addProject-btn"):
-          let v = prompt("new project hueheuheuheuhue");
-          tm.addProject(v);
+          projectDialog.showModal();
+          // tm.addProject(proj);
           updateProjectsDisplay();
           break;
 

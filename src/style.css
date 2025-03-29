@@ -149,7 +149,9 @@ input {
 }
 
 .close-btn,
-.submit-btn {
+.submit-btn,
+.project-close-btn,
+.project-submit-btn {
   display: block;
   margin-top: 5%;
   padding: 10px;
