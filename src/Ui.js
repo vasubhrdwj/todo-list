@@ -94,13 +94,18 @@ const ui = (tm) =>
       dialog.setAttribute("projectname", projectName);
       editTaskId = task ? task.id : null;
       editProjectName = projectName;
+      const submitBtn = document.querySelector(".submit-btn");
 
       if (mode === "edit" && task) {
         titleInput.value = task.title;
+        submitBtn.innerText = "Edit";
+
         const parsedDate = parse(task.dueDate, "d MMM yyyy", new Date());
         dueDateInput.value = format(parsedDate, "yyyy-MM-dd");
         priorityInput.value = task.priority;
       } else {
+        submitBtn.innerText = "Add";
+
         taskForm.reset();
       }
       dialog.showModal();
@@ -113,6 +118,8 @@ const ui = (tm) =>
       const title = titleInput.value.trim();
       const dueDate = dueDateInput.value;
       const priority = priorityInput.value;
+      const submitBtn = document.querySelector(".submit-btn");
+
       if (!title) {
         alert("Title cannot be empty!");
         titleInput.focus();
@@ -248,13 +255,13 @@ const ui = (tm) =>
     const setPriorityColor = (priority) => {
       let color = "white";
       if (priority === "high") {
-        color = "#CC6666"; // Soft Red
+        color = "#CC6666"; // Dark Red
       }
       if (priority === "medium") {
-        color = "#D9B300"; // Soft Yellow
+        color = "#D9B300"; // Dark Yellow
       }
       if (priority === "low") {
-        color = "#339966"; // Soft Green
+        color = "#339966"; // Dark Green
       }
 
       return color;

@@ -29,6 +29,12 @@ body {
   align-items: stretch;
 }
 
+img {
+  height: 80px;
+  width: auto;
+  border-radius: 40%;
+}
+
 .sidebar {
   background-color: gainsboro;
   border-radius: inherit;
@@ -39,6 +45,8 @@ body {
   display: grid;
   grid-template-rows: 1fr 7fr;
   gap: 10%;
+
+  font-size: 20px;
 }
 
 .user-display {
@@ -78,13 +86,13 @@ body {
 .project-btn:hover {
   background-color: beige;
 }
-.project-btn:focus {
-  background-color: grey;
+.project-btn:active {
+  background-color: gray;
 }
 
 .addTask-btn {
-  padding: 10px;
-  width: 22%;
+  padding: 2%;
+  /* width: 2%; */
   text-align: center;
   font-weight: 600;
   font-size: 18px;
@@ -93,6 +101,10 @@ body {
   color: red;
   display: block;
   border-radius: 5px;
+}
+
+.addTask-btn:hover {
+  background-color: bisque;
 }
 
 .todo > * {
@@ -127,39 +139,73 @@ body {
   margin-left: max(60%, 10px);
 }
 
+.del-btn:hover {
+  background-color: darkred;
+}
+
 ::backdrop {
-  background-image: linear-gradient(
-    45deg,
-    magenta,
-    rebeccapurple,
-    dodgerblue,
-    green
-  );
-  opacity: 0.75;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal {
-  margin: auto;
-  text-align: center;
-  padding: 5%;
+  margin: 4% auto;
+  width: 20%;
+  background-color: white;
+}
+#task-form, #project-form {
+  width: 100%;
+  background-color: gainsboro;
+  padding: 2%;
 }
 
-input {
-  border: 1px solid #28282b;
+input,
+select,
+input[type="date"] {
+  /* border: 1px solid #28282b; */
+  width: 60%;
+  text-align: center;
+  margin-left: 20%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.inp {
+  width: 100%;
+  margin: 15% 0;
+}
+
+.submit-btn,
+.project-submit-btn {
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  padding: 15px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #28282b;
+  color: white;
+  border-radius: 10px;
 }
 
 .close-btn,
-.submit-btn,
-.project-close-btn,
-.project-submit-btn {
+.project-close-btn {
   display: block;
-  margin-top: 5%;
-  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 1%;
+  margin-left: auto;
+  background-color: #28282b;
+  color: white;
 }
 
 label {
   display: block;
-  margin-top: 10%;
+  padding: 2%;
+  margin-left: 20%;
+  font-weight: bold;
 }
 .todo {
   display: flex;
@@ -188,7 +234,7 @@ label {
   font-weight: bold;
 }
 .addProject-btn:hover {
-  background-color: whitesmoke;
+  background-color: blanchedalmond;
 }
 /* Checkbox wrapper */
 

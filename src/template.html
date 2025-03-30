@@ -9,8 +9,11 @@
   <body>
     <div class="sidebar">
       <div class="user-display">
-        <img src="#" alt="user-pic" />
-        <h3>Anon</h3>
+        <img
+          src="../assests/Photos/Ideas_Surprised_Pikachu_HD.webp"
+          alt="user-pic"
+        />
+        <h3>User</h3>
       </div>
       <div class="project-display">
         <h3>Projects</h3>
@@ -20,27 +23,35 @@
 
     <dialog class="modal">
       <form id="task-form" method="dialog">
-        <button class="close-btn">Close</button>
-        <label for="title" aria-required>Title : </label>
-        <input type="text" name="title" id="title" required />
-        <label for="dueDate">Date : </label>
-        <input type="date" id="dueDate" name="dueDate" />
-        <label for="priority">Priority : </label>
-        <select name="priority" id="priority">
-          <option value="high">High</option>
-          <option value="medium" selected>Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <button autofocus type="submit" class="submit-btn">Submit</button>
+        <button class="close-btn">X</button>
+        <div class="inp">
+          <label for="title" aria-required>Title : </label>
+          <input type="text" name="title" id="title" required />
+        </div>
+        <div class="inp">
+          <label for="dueDate">Date : </label>
+          <input type="date" id="dueDate" name="dueDate" />
+        </div>
+        <div class="inp">
+          <label for="priority">Priority : </label>
+          <select name="priority" id="priority">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <button autofocus type="submit" class="submit-btn">Add Task</button>
       </form>
     </dialog>
 
     <dialog class="modal projectDialog">
       <form id="project-form" method="dialog">
-        <button class="project-close-btn">Close</button>
-        <label for="project-name">Project Name: </label>
-        <input type="text" id="project-name" name="project-name" />
-        <button autofocus type="submit" class="project-submit-btn">Submit</button>
+        <button class="project-close-btn">X</button>
+        <div class="inp">
+          <label for="project-name">Project Name: </label>
+          <input type="text" id="project-name" name="project-name" />
+        </div>
+        <button autofocus type="submit" class="project-submit-btn">Add</button>
       </form>
     </dialog>
 
