@@ -6,11 +6,13 @@ const taskManager = new TaskManager();
 const ui = Ui(taskManager);
 
 // Examples
-taskManager.addTask("Study", "2025-12-03", "high");
-taskManager.addTask("Work", "2025-04-03", "low");
-taskManager.addTask("Workout", "2025-02-01", "high", "Fitness");
+taskManager.addTask("Study", "03/12/2025", "high");
+taskManager.addTask("Work", "03/04/2025", "low");
+taskManager.addTask("Workout", "2/02/2025", "high", "Fitness");
 
 ui.updateProjectsDisplay();
 
 ui.showTasks("Default");
- 
+const parsedDate = parse("04/03/2002", "dd/MM/yyyy", new Date());
+const date = format(parsedDate, "dd MMMM yyyy");
+console.log(date);
