@@ -109,7 +109,6 @@ const ui = (tm) =>
       const title = titleInput.value.trim();
       const dueDate = dueDateInput.value;
       const priority = priorityInput.value;
-
       if (!title) {
         alert("Title cannot be empty!");
         titleInput.focus();
@@ -216,7 +215,6 @@ const ui = (tm) =>
           const project = clickedTodo.getAttribute("pName");
 
           const task = tm.getTask(project, taskId);
-          console.log(task);
 
           openDialog("edit", project, task);
           break;
