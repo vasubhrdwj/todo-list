@@ -70,7 +70,7 @@ const ui = (tm) =>
       delBtn.classList.add("del-btn");
       delBtn.setAttribute("projectname", task.projectName);
       delBtn.setAttribute("tid", task.id);
-      // console.log(task.priority);
+      p.style.color = setPriorityColor(task.priority);
 
       div.appendChild(checkBox);
       div1.appendChild(h4);
@@ -243,6 +243,21 @@ const ui = (tm) =>
       checkboxLabel.appendChild(tickMark);
 
       return c26;
+    };
+
+    const setPriorityColor = (priority) => {
+      let color = "white";
+      if (priority === "high") {
+        color = "#CC6666"; // Soft Red
+      }
+      if (priority === "medium") {
+        color = "#D9B300"; // Soft Yellow
+      }
+      if (priority === "low") {
+        color = "#339966"; // Soft Green
+      }
+
+      return color;
     };
 
     return { updateProjectsDisplay, showTasks };
