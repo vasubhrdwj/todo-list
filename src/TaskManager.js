@@ -56,6 +56,6 @@ export default class TaskManager {
   }
 
   parseDate(date) {
-    return format(new Date(date), "d MMMM yyyy");
+    return format(new Date(date), "d MMM yyyy");
   }
 }

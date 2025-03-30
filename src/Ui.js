@@ -1,3 +1,5 @@
+import { format, parse } from "date-fns";
+
 const ui = (tm) =>
   (() => {
     const mainDisplay = document.querySelector(".main-display");
@@ -68,6 +70,7 @@ const ui = (tm) =>
       delBtn.classList.add("del-btn");
       delBtn.setAttribute("projectname", task.projectName);
       delBtn.setAttribute("tid", task.id);
+      // console.log(task.priority);
 
       div.appendChild(checkBox);
       div1.appendChild(h4);
@@ -94,7 +97,8 @@ const ui = (tm) =>
 
       if (mode === "edit" && task) {
         titleInput.value = task.title;
-        dueDateInput.value = task.dueDate;
+        const parsedDate = parse(task.dueDate, "d MMM yyyy", new Date());
+        dueDateInput.value = format(parsedDate, "yyyy-MM-dd");
         priorityInput.value = task.priority;
       } else {
         taskForm.reset();
