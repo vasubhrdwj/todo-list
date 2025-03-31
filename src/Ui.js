@@ -232,6 +232,12 @@ const ui = (tm) =>
       }
     });
 
+    window.onload = () => {
+      tm.handleRefresh();
+      showTasks("Default");
+      updateProjectsDisplay();
+    };
+
     const createCheckBox = (taskId) => {
       const c26 = document.createElement("div");
       const checkboxInput = document.createElement("input");

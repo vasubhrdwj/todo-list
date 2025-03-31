@@ -1,6 +1,6 @@
 // TaskManager.js
 import ProjectManager from "./ProjectManager";
-import { format, parse } from "date-fns";
+import { format, isThursday, parse } from "date-fns";
 
 export default class TaskManager {
   constructor() {
@@ -14,8 +14,8 @@ export default class TaskManager {
     const id = this.taskId++;
     dueDate = this.parseDate(dueDate);
     const obj = { id, title, dueDate, priority, isComplete, projectName };
-    localStorage.setItem(id, JSON.stringify(obj));
     projectList.push(obj);
+    this.setLocalStorage();
   }
 
   getTask(projectName, id) {
@@ -23,10 +23,11 @@ export default class TaskManager {
   }
 
   updateTask(projectName, id, { title, dueDate, priority }) {
-    const task = this.Project(projectName).find((task) => task.id === id);
+    const task = this.getTask(projectName, id);
     task.title = title;
     task.dueDate = this.parseDate(dueDate);
     task.priority = priority;
+    this.setLocalStorage();
   }
 
   deleteTask(projectName, id) {
@@ -34,11 +35,13 @@ export default class TaskManager {
     this.pm.projects[projectName] = projectList.filter(
       (task) => task.id !== id
     );
+    this.setLocalStorage();
   }
 
   toggleComplete(projectName, id) {
     const task = this.Project(projectName).find((t) => t.id === id);
     task.isComplete = !task.isComplete;
+    this.setLocalStorage();
   }
 
   Project(projectName) {
@@ -51,10 +54,12 @@ export default class TaskManager {
 
   delProject(projectName) {
     this.pm.delProject(projectName);
+    this.setLocalStorage();
   }
 
   addProject(projectName) {
     this.pm.addProject(projectName);
+    this.setLocalStorage();
   }
 
   parseDate(date) {
@@ -62,4 +67,17 @@ export default class TaskManager {
     return format(new Date(date), "d MMM yyyy");
   }
 
+  setLocalStorage() {
+    localStorage.setItem("project", JSON.stringify(this.getAllProjects()));
+    localStorage.setItem("lastId", JSON.stringify(this.taskId));
+  }
+
+  handleRefresh() {
+    const ls = localStorage.getItem("project");
+    if (!ls) {
+      return;
+    }
+    this.pm.setProject(JSON.parse(ls));
+    this.taskId = JSON.parse(localStorage.getItem("lastId"));
+  }
 }

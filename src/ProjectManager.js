@@ -25,4 +25,8 @@ export default class ProjectManager {
   getAllProjects() {
     return this.projects;
   }
+
+  setProject(project) {
+    this.projects = project;
+  }
 }
