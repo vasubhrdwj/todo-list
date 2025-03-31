@@ -41,6 +41,7 @@ export default class TaskManager {
   toggleComplete(projectName, id) {
     const task = this.Project(projectName).find((t) => t.id === id);
     task.isComplete = !task.isComplete;
+    console.log(this.getAllProjects());
     this.setLocalStorage();
   }
 

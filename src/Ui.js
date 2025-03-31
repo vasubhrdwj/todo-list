@@ -27,7 +27,14 @@ const ui = (tm) =>
         btn.setAttribute("name", project);
         btn.textContent = project;
 
+        const delBtn = document.createElement("button");
+        delBtn.textContent = "X";
+        delBtn.classList.add("delProject-btn");
+        delBtn.setAttribute("name", project);
+
         li.appendChild(btn);
+        li.appendChild(delBtn);
+
         projectList.appendChild(li);
       }
       const addProjectBtn = document.createElement("button");
@@ -54,6 +61,7 @@ const ui = (tm) =>
       h4.textContent = task.title;
 
       const checkBox = createCheckBox(task.id);
+
       const div1 = document.createElement("div");
       div1.classList.add("div1");
 
@@ -77,6 +85,10 @@ const ui = (tm) =>
       div1.appendChild(p);
       div.append(div1);
       div.appendChild(delBtn);
+
+      if (task.isComplete) {
+        checkBox.querySelector("input").checked = true;
+      }
 
       return div;
     };
@@ -182,6 +194,11 @@ const ui = (tm) =>
           showTasks(pName);
           break;
 
+        case event.target.classList.contains("delProject-btn"):
+          tm.delProject(event.target.name);
+          updateProjectsDisplay();
+          break;
+
         case event.target.classList.contains("close-btn"):
           event.preventDefault();
           taskForm.reset();
@@ -205,7 +222,6 @@ const ui = (tm) =>
 
         case event.target.classList.contains("addProject-btn"):
           projectDialog.showModal();
-          // tm.addProject(proj);
           updateProjectsDisplay();
           break;
 

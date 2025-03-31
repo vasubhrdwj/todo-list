@@ -72,16 +72,23 @@ img {
 
 .project-items {
   list-style-type: none;
+  display: flex;
+  /* padding: 10%; */
+  background-color: white;
+  width: 100%;
+  border-bottom: 2px solid darkgray;
+  height: inherit;
+  /* gap: 10%; */
 }
 .project-list {
   width: 100%;
 }
 
 .project-btn {
-  padding: 10%;
   background-color: white;
-  width: 100%;
-  border-bottom: 2px solid darkgray;
+  color: black;
+  width: 80%;
+  padding: 10%;
 }
 .project-btn:hover {
   background-color: beige;
@@ -136,11 +143,26 @@ img {
   display: block;
   width: 10%;
   border-radius: 5px;
-  margin-left: max(60%, 10px);
+  margin-left: clamp(5px, 40%, 400px);
 }
 
 .del-btn:hover {
   background-color: darkred;
+}
+
+.delProject-btn {
+  color: white;
+  background-color: #28282b;
+  /* width: 10%; */
+  width: 20%;
+  height: inherit;
+  /* margin: 2%; */
+  /* border-radius: 20%; */
+  align-self: stretch;
+}
+
+.delProject-btn:hover {
+  background-color: lightslategray;
 }
 
 ::backdrop {
@@ -152,7 +174,8 @@ img {
   width: 20%;
   background-color: white;
 }
-#task-form, #project-form {
+#task-form,
+#project-form {
   width: 100%;
   background-color: gainsboro;
   padding: 2%;
@@ -209,7 +232,7 @@ label {
 }
 .todo {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -217,21 +240,35 @@ label {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 200px;
+  width: 30%;
 }
 
 .div1 > h4 {
   font-size: 20px;
+  word-wrap: break-word;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .div1 > p {
   font-size: 18px;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .addProject-btn {
-  padding: 5%;
+  padding: 8%;
   margin-top: 5%;
   border-radius: 10px;
   font-weight: bold;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.addProject-btn {
 }
 .addProject-btn:hover {
   background-color: blanchedalmond;
