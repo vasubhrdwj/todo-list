@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="609a232ab53e413e38d2.css" />
+  <script defer src="main.js"></script></head>
+  <body>
+    <div class="sidebar">
+      <div class="user-display">
+        <img
+          src="5c1357cdffa8f8bfec11.webp"
+          alt="user-pic"
+        />
+        <h3>User</h3>
+      </div>
+      <div class="project-display">
+        <h3>Projects</h3>
+        <ul class="project-list"></ul>
+      </div>
+    </div>
+
+    <dialog class="modal">
+      <form id="task-form" method="dialog">
+        <button class="close-btn">X</button>
+        <div class="inp">
+          <label for="title" aria-required>Title : </label>
+          <input type="text" name="title" id="title" required />
+        </div>
+        <div class="inp">
+          <label for="dueDate">Date : </label>
+          <input type="date" id="dueDate" name="dueDate" />
+        </div>
+        <div class="inp">
+          <label for="priority">Priority : </label>
+          <select name="priority" id="priority">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <button autofocus type="submit" class="submit-btn">Add Task</button>
+      </form>
+    </dialog>
+
+    <dialog class="modal projectDialog">
+      <form id="project-form" method="dialog">
+        <button class="project-close-btn">X</button>
+        <div class="inp">
+          <label for="project-name">Project Name: </label>
+          <input type="text" id="project-name" name="project-name" />
+        </div>
+        <button autofocus type="submit" class="project-submit-btn">Add</button>
+      </form>
+    </dialog>
+
+    <div class="main-display"></div>
+  </body>
+</html>
