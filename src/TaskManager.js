@@ -13,8 +13,9 @@ export default class TaskManager {
     const projectList = this.Project(projectName);
     const id = this.taskId++;
     dueDate = this.parseDate(dueDate);
-    // else console.log(dueDate);
-    projectList.push({ id, title, dueDate, priority, isComplete, projectName });
+    const obj = { id, title, dueDate, priority, isComplete, projectName };
+    localStorage.setItem(id, JSON.stringify(obj));
+    projectList.push(obj);
   }
 
   getTask(projectName, id) {
@@ -60,4 +61,5 @@ export default class TaskManager {
     if (!date) return format(new Date(), "d MMM yyyy");
     return format(new Date(date), "d MMM yyyy");
   }
+
 }

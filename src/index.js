@@ -13,6 +13,6 @@ taskManager.addTask("Workout", "2/02/2025", "high", "Fitness");
 ui.updateProjectsDisplay();
 
 ui.showTasks("Default");
-// const parsedDate = parse("04/03/2002", "dd/MM/yyyy", new Date());
-// const date = format(parsedDate, "dd MMMM yyyy");
-// console.log(date);
+
+
+window.onload = () => {};
